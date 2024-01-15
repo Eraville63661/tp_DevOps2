@@ -23,7 +23,6 @@ jobs:
 
     - name: Exécution de Flake8
       run: flake8
-           python random-picking.py "5", "2", "3", "4"
 
     - name: Construire l'image Docker de l'application
       run: docker build -t rerav/random-picking:v1 .
