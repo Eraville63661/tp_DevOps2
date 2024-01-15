@@ -3,3 +3,4 @@ def proba(k, nb_rouge, nb_blanche, nb_noire):
     probaB = 0
     probaR = 0
     print(probaN + '..' + probaB + '..' + probaR + '..' + k + '..' + nb_rouge + '..' + nb_blanche + '..' + nb_noire  )
+    return 0
