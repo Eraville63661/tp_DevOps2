@@ -21,13 +21,7 @@ def proba_extraction(k, nb_rouge, nb_blanche, nb_noire):
 
     probabilite = nombre_combinaisons / nombre_total_combinaisons
 
+    
+    print(f"La probabilité est : {probabilite:.4f}")
     return probabilite
 
-# Exemple d'utilisation
-k = 3
-nb_rouge = 5
-nb_blanche = 4
-nb_noire = 3
-
-resultat = proba_extraction(k, nb_rouge, nb_blanche, nb_noire)
-print(f"La probabilité est : {resultat:.4f}")
