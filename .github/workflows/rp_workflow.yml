@@ -1,0 +1,35 @@
+name: Workflow de tirage
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Installe Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Installe Dépendance
+      run: 
+        pip install -r requirement.txt
+
+    - name : Execution de mon script python
+      run: python random-picking.py "5", "2", "3", "4"
+
+    - name: Exécution de Flake8
+      run: flake8
+           python random-picking.py "5", "2", "3", "4"
+
+    - name: Construire l'image Docker de l'application
+      run: docker build -t rerav/random-picking:v1 .
+
+    - name: Connexion à Docker
+      run: docker login -u ${{ secrets.ID }} -p ${{ secrets.MDP }}
+
+    - name: Push de l'image
+      run: docker push rerav/random-picking:v1
